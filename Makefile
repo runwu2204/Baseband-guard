@@ -6,7 +6,7 @@ ccflags-y += -I$(srctree)/security/selinux -I$(srctree)/security/selinux/include
 ccflags-y += -I$(objtree)/security/selinux -include $(srctree)/include/uapi/asm-generic/errno.h
 
 obj-$(CONFIG_BBG) += bbg.o
-
+KBUILD_HOSTLDFLAGS += -fuse-ld=lld
 ifneq ($(wildcard $(objtree)/security/selinux/flask.h),)
   $(info -- Baseband-guard: flask.h found, skip generation)
 else
